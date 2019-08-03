@@ -1,0 +1,19 @@
+{% if latest_question_list %}
+	<ul>
+	{% for question in latest_question_list %}
+		<li> 
+			<!-- 
+			<a href="/polls/{{question.id}}/">
+				 -->
+				 <!-- 
+				 for making a direct call use url 'detail' but for adding the url present in the namespace use the following code
+				  -->
+				<!-- for making a call to the url present in a namespace use the following method -->
+				<a href="{% url 'polls:detail' question.id %}">
+			 {{question.question_text}} </a></li>
+	{% endfor %}
+	</ul>
+
+{% else %}
+<p> No polls available right now. Please visit later </p>
+{% endif %}
